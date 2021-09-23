@@ -5,4 +5,8 @@ part 'user_state.dart';
 
 class UserCubit extends Cubit<UserState> {
   UserCubit() : super(UserInitial());
+
+  void logIn(String email, String pass) {
+
+  }
 }

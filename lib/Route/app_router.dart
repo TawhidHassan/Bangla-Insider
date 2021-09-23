@@ -1,6 +1,9 @@
 import 'package:banglainsider/Bloc/User/user_cubit.dart';
-import 'package:banglainsider/Constants/Colors/colors.dart';
+import 'package:banglainsider/Constants/String/string.dart';
 import 'package:banglainsider/Ui/Page/home_page.dart';
+import 'package:banglainsider/Ui/Screen/ForgetPass/forget_pass.dart';
+import 'package:banglainsider/Ui/Screen/Login/login_screen.dart';
+import 'package:banglainsider/Ui/Screen/Registration/registration_screen.dart';
 import 'package:banglainsider/Ui/Screen/splash_screen.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -20,7 +23,12 @@ class AppRouter {
               create: (context) => UserCubit(),
               child: HomePage(),
             ));
-
+      case LOGIN_PAGE:
+        return MaterialPageRoute(builder: (_) => LoginScreen());
+      case REGISTER_PAGE:
+        return MaterialPageRoute(builder: (_) => RegistrerScreen());
+      case FORGET_PASSWORD_PAGE:
+        return MaterialPageRoute(builder: (_) => ForgetPasswordScreen());
       default:
         return null;
     }

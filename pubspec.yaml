@@ -35,6 +35,8 @@ dependencies:
   hive: ^2.0.3
   hive_flutter: ^1.0.0
 
+  progress_state_button: "^1.0.3"
+
   flutter:
     sdk: flutter
 

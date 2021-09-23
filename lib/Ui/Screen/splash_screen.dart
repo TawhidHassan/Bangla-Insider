@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:banglainsider/Constants/String/string.dart';
 import 'package:banglainsider/Ui/Page/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -17,11 +18,11 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(Duration(seconds: 4), () {
       setState(() {
 
-        // isLogin?
-        // Navigator.pushReplacement(context, PageTransition(MainPage())): Navigator.pushReplacementNamed(
-        //     context, LOGIN_PAGE);
+        isLogin?
+        Navigator.pushReplacement(context, PageTransition(HomePage())): Navigator.pushReplacementNamed(
+            context, LOGIN_PAGE);
 
-        Navigator.pushReplacement(context, PageTransition(HomePage()));
+        // Navigator.pushReplacement(context, PageTransition(HomePage()));
       });
     });
   }
