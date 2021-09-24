@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 
 
 const Color textFieldBackColor = Color(0xFFEDF2F7);
+const Color background = Color(0xFFFFFFFF);
+const Color devider = Color(0xFFD8ECF6);
 const Color hintColor = Color(0xFF8692A6);
 const Color textColor = Color(0xFF1C1B1B);
+const Color backColor = Color(0xFFF3FAFD);
 const MaterialColor kPrimaryColorx = const MaterialColor(
   0xFF0082C7,
   const <int, Color>{

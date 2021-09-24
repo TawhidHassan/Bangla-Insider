@@ -1,4 +1,8 @@
 import 'package:banglainsider/Constants/Colors/colors.dart';
+import 'package:banglainsider/Ui/Widgets/Card/NewsCardWithDetailsBig/news_card_big_With_deatils.dart';
+import 'package:banglainsider/Ui/Widgets/Card/NewsCardWithTitle/news_card_with_title.dart';
+import 'package:banglainsider/Ui/Widgets/Card/NewsCardWithTitleSortDescrip/news_card_title_sort_discr.dart';
+import 'package:banglainsider/Ui/Widgets/Card/TitleCard/title_news_card.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -75,7 +79,27 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        body: Container(),
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          margin: EdgeInsets.only(bottom: 30),
+          child: ListView(
+            physics: BouncingScrollPhysics(),
+            children: [
+              NewsCardBigDetails(),
+              NewsCardWithTitleSortDiscrip(),
+              NewsCardWithTitle(),
+              NewsCardWithTitle(),
+              NewsCardWithTitle(),
+              NewsCardWithTitle(),
+              NewsCardWithTitle(),
+              TitleNewsCard(),
+              TitleNewsCard(),
+              TitleNewsCard(),
+              TitleNewsCard(),
+              TitleNewsCard(),
+            ],
+          ),
+        ),
       ),
     );
   }
