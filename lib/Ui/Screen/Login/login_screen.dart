@@ -41,6 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     setState(() {
                       validate = true;
                       progressButtonState = ButtonState.loading;
+                      Navigator.pushReplacementNamed(context, HOME_PAGE);
                     });
                     BlocProvider.of<UserCubit>(context).logIn(emilController.text,passwordController.text,);
 
