@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 
 //base url of api
-const BASE_URL = "https://demo.fieldx.maacinfo.com/api/";
+const BASE_URL = "https://bangla-insider.softwaresale.xyz/api/";
 
 //route name
 const MAIN_PAGE = "/main_page";

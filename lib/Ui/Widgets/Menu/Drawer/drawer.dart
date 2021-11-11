@@ -1,43 +1,39 @@
 import 'package:banglainsider/Constants/Colors/colors.dart';
+import 'package:banglainsider/Data/Menus/Menu.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {
+  final List<Menu>? menus;
+
+  const CustomDrawer({Key? key, this.menus}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children:  <Widget>[
-          Container(
-            height: 65.0,
-            child: DrawerHeader(
-              decoration: BoxDecoration(
-                color: kPrimaryColorx,
+      child: Column(
+        children: [
+          Expanded(
+            child: Container(
+              height: 65.0,
+              child: DrawerHeader(
+                decoration: BoxDecoration(
+                  color: kPrimaryColorx,
+                ),
+                child: Image.asset('assets/images/white_logo.png'),
               ),
-              child: Image.asset('assets/images/white_logo.png'),
             ),
           ),
-          ListTile(
-            title: Text('প্রচ্ছদ',style: TextStyle(fontWeight: FontWeight.w800),),
-          ),
-          ListTile(
-            title: Text('বাংলাদেশ',style: TextStyle(fontWeight: FontWeight.w800)),
-          ),
-          ListTile(
-            title: Text('অর্থ-বানিজ্য',style: TextStyle(fontWeight: FontWeight.w800)),
-          ),ListTile(
-            title: Text('বিশ্বজুড়ে',style: TextStyle(fontWeight: FontWeight.w800)),
-          ),ListTile(
-            title: Text('অর্থ-বানিজ্য',style: TextStyle(fontWeight: FontWeight.w800)),
-          ),ListTile(
-            title: Text('মতামত',style: TextStyle(fontWeight: FontWeight.w800)),
-          ),ListTile(
-            title: Text('বঙ্গবন্ধু',style: TextStyle(fontWeight: FontWeight.w800)),
-          ),ListTile(
-            title: Text('বিনোদন',style: TextStyle(fontWeight: FontWeight.w800)),
-          ),ListTile(
-            title: Text('সারাদেশ',style: TextStyle(fontWeight: FontWeight.w800)),
-          ),
+          SizedBox(height: 8,),
+          Container(
+            height: MediaQuery.of(context).size.height*0.9,
+            child: ListView(
+                padding: EdgeInsets.zero,
+                children: menus!.map((menu) =>
+                    ListTile(
+                      title: Text(menu.name.toString(),style: TextStyle(fontWeight: FontWeight.w800),),
+                    ),
+                ).toList()
+            ),
+          )
         ],
       ),
     );

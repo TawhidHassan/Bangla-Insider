@@ -1,3 +1,4 @@
+import 'package:banglainsider/Bloc/Home/home_cubit.dart';
 import 'package:banglainsider/Bloc/User/user_cubit.dart';
 import 'package:banglainsider/Constants/String/string.dart';
 import 'package:banglainsider/Ui/Page/home_page.dart';
@@ -20,7 +21,7 @@ class AppRouter {
       case HOME_PAGE:
         return MaterialPageRoute(
             builder: (BuildContext context) => BlocProvider(
-              create: (context) => UserCubit(),
+              create: (context) => HomeCubit(),
               child: HomePage(),
             ));
       case LOGIN_PAGE:
