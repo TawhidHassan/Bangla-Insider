@@ -1,12 +1,12 @@
 import 'package:banglainsider/Constants/Colors/colors.dart';
 import 'package:flutter/material.dart';
 
-class NewsCardBigDetails extends StatefulWidget {
+class NewsCardWithoutImage extends StatefulWidget {
   @override
-  _NewsCardBigDetailsState createState() => _NewsCardBigDetailsState();
+  _NewsCardWithoutImageState createState() => _NewsCardWithoutImageState();
 }
 
-class _NewsCardBigDetailsState extends State<NewsCardBigDetails> {
+class _NewsCardWithoutImageState extends State<NewsCardWithoutImage> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,10 +31,12 @@ class _NewsCardBigDetailsState extends State<NewsCardBigDetails> {
                 ],
               )
             ),
-          Container(
-              width: MediaQuery.of(context).size.width,
-              color: Colors.grey,
-              height: 160,
+          const Divider(
+            thickness: 1, // thickness of the line
+            indent: 1, // empty space to the leading edge of divider.
+            endIndent: 1, // empty space to the trailing edge of the divider.
+            color:Color(0xff6c757d), // The color to use when painting the line.
+            height: 20, // The divider's height extent.
           ),
         ],
       ),

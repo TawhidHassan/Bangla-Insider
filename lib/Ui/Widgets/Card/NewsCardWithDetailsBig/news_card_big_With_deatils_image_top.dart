@@ -1,12 +1,12 @@
 import 'package:banglainsider/Constants/Colors/colors.dart';
 import 'package:flutter/material.dart';
 
-class NewsCardBigDetails extends StatefulWidget {
+class NewsCardBigDetailsImageTop extends StatefulWidget {
   @override
-  _NewsCardBigDetailsState createState() => _NewsCardBigDetailsState();
+  _NewsCardBigDetailsImageTopState createState() => _NewsCardBigDetailsImageTopState();
 }
 
-class _NewsCardBigDetailsState extends State<NewsCardBigDetails> {
+class _NewsCardBigDetailsImageTopState extends State<NewsCardBigDetailsImageTop> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,7 +15,11 @@ class _NewsCardBigDetailsState extends State<NewsCardBigDetails> {
       width: MediaQuery.of(context).size.width,
       child: Column(
         children: [
-
+          Container(
+            width: MediaQuery.of(context).size.width,
+            color: Colors.grey,
+            height: 160,
+          ),
             Padding(
               padding: const EdgeInsets.only(top: 10.0),
               child: Text("পুলিশ বাহিনীতে শৃখলা ভঙ্গ করলে কঠোর ব্যবস্থাঃ আইজিপি",style: TextStyle(fontSize: 19,fontWeight: FontWeight.w800),textAlign: TextAlign.start,),
@@ -31,11 +35,7 @@ class _NewsCardBigDetailsState extends State<NewsCardBigDetails> {
                 ],
               )
             ),
-          Container(
-              width: MediaQuery.of(context).size.width,
-              color: Colors.grey,
-              height: 160,
-          ),
+
         ],
       ),
     );
