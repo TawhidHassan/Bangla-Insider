@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 //base url of api
 const BASE_URL = "https://bangla-insider.softwaresale.xyz/api/";
+const BASE_URL_IMAGE = "https://bangla-insider.softwaresale.xyz/";
 
 //route name
 const MAIN_PAGE = "/main_page";

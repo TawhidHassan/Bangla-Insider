@@ -1,3 +1,4 @@
+import 'package:banglainsider/Bloc/CategoryNews/category_news_cubit.dart';
 import 'package:banglainsider/Bloc/Home/home_cubit.dart';
 import 'package:banglainsider/Bloc/User/user_cubit.dart';
 import 'package:banglainsider/Constants/String/string.dart';
@@ -20,8 +21,15 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => SplashScreen());
       case HOME_PAGE:
         return MaterialPageRoute(
-            builder: (BuildContext context) => BlocProvider(
-              create: (context) => HomeCubit(),
+            builder: (BuildContext context) => MultiBlocProvider(
+              providers: [
+                BlocProvider<HomeCubit>(
+                  create: (context) => HomeCubit(),
+                ),
+                BlocProvider<CategoryNewsCubit>(
+                  create: (context) => CategoryNewsCubit(),
+                ),
+              ],
               child: HomePage(),
             ));
       case LOGIN_PAGE:

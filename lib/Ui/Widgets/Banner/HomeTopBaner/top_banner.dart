@@ -1,6 +1,11 @@
+import 'package:banglainsider/Constants/String/string.dart';
 import 'package:flutter/material.dart';
 
 class TopBanner extends StatelessWidget {
+  String? image;
+
+  TopBanner({this.image});
+
   @override
   Widget build(BuildContext context) {
     return  Container(
@@ -8,7 +13,7 @@ class TopBanner extends StatelessWidget {
       color: Color(0xFFd9ddf7),
       margin: EdgeInsets.all(8),
       height: 90,
-      child:Image.asset('assets/images/logo.png'),
+      child:Image.network(BASE_URL_IMAGE+image!,fit:BoxFit.fill),
     );
   }
 }

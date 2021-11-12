@@ -1,6 +1,8 @@
 import 'package:banglainsider/Bloc/Home/home_cubit.dart';
 import 'package:banglainsider/Constants/Colors/colors.dart';
 import 'package:banglainsider/Constants/String/string.dart';
+import 'package:banglainsider/Ui/Widgets/Ads/banner_ad.dart';
+import 'package:banglainsider/Ui/Widgets/Ads/banner_ad2.dart';
 import 'package:banglainsider/Ui/Widgets/Banner/FestonBanner/feston_banner.dart';
 import 'package:banglainsider/Ui/Widgets/Banner/HomeTopBaner/top_banner.dart';
 import 'package:banglainsider/Ui/Widgets/BreakingNews/braking_news.dart';
@@ -22,7 +24,9 @@ import 'package:banglainsider/Ui/Widgets/Sironame/sironame.dart';
 import 'package:banglainsider/Ui/Widgets/TabView/HomeCustomTabView/tabview_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'CategoryNews/category_news1.dart';
+import 'CategoryNews/category_news2.dart';
+import 'CategoryNews/category_news3.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -71,12 +75,12 @@ class _HomePageState extends State<HomePage> {
             child: ListView(
               physics: BouncingScrollPhysics(),
               children: [
-                CustomTabView(),
-                BrakingNews(),
-                TopBanner(),
-                HotNews(),
-                HeighLightNews(),
-                HeighLightNews(),
+                CustomTabView(menus: data.data!.menus,),
+                BrakingNews(text: data.data!.breaking_news![0].headline,),
+                TopBanner(image: data.data!.banner_1!.media!.thumbnail,),
+                HotNews(cover: data.data!.cover1),
+                HeighLightNews(cover: data.data!.cover2),
+                HeighLightNews(cover: data.data!.cover4),
                 Sironame(),
                 Sironame(),
                 Container(
@@ -88,108 +92,25 @@ class _HomePageState extends State<HomePage> {
                     child: Text("Live"),
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.all(12),
-                  height: 280,
-                  width: MediaQuery.of(context).size.width,
-                  color: Color(0xFFc2dff1),
-                  child: Center(
-                    child: Text("Add"),
-                  ),
-                ),
-                HeighLightNewsTwo(),
-                HeighLightNewsTwo(),
+                BannerAds(image:data.data!.full_ad!.media!.thumbnail ,),
+                HeighLightNewsTwo(cover: data.data!.cover5),
+                HeighLightNewsTwo(cover: data.data!.cover6),
                 PublicOpenion(),
-                Container(
-                  margin: EdgeInsets.all(12),
-                  height: 280,
-                  width: MediaQuery.of(context).size.width,
-                  color: Color(0xFFc2dff1),
-                  child: Center(
-                    child: Text("Add"),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.all(12),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("পবাংলাদেশ ইনসাইড ",style: TextStyle(fontWeight: FontWeight.w700,color: Color(0xFF007DC4),fontSize: 28),),
-                      const Divider(
-                        thickness: 2, // thickness of the line
-                        indent: 1, // empty space to the leading edge of divider.
-                        endIndent: 1, // empty space to the trailing edge of the divider.
-                        color:Color(0xFF007DC4), // The color to use when painting the line.
-                        height: 20, // The divider's height extent.
-                      ),
-                    ],
-                  ),
-                ),
-                NewsCardWithoutImage(),
-                NewsCardWithoutImage(),
-                NewsCardWithoutImage(),
-                FestonBanner(),
-                NewsCardWithoutImage(),
-                NewsCardWithoutImage(),
-                Container(
-                  margin: EdgeInsets.all(12),
-                  height: 130,
-                  width: MediaQuery.of(context).size.width,
-                  color: Color(0xFFc2dff1),
-                  child: Center(
-                    child: Text("Add"),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.all(12),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("ইনসাইড পলিটিক্স  ",style: TextStyle(fontWeight: FontWeight.w700,color: Color(0xFF007DC4),fontSize: 28),),
-                      const Divider(
-                        thickness: 2, // thickness of the line
-                        indent: 1, // empty space to the leading edge of divider.
-                        endIndent: 1, // empty space to the trailing edge of the divider.
-                        color:Color(0xFF007DC4), // The color to use when painting the line.
-                        height: 20, // The divider's height extent.
-                      ),
-                    ],
-                  ),
-                ),
-                NewsCardWithoutImage(),
-                NewsCardBigDetailsImageTop(),
-                NewsCardBigDetailsImageTop(),
-                Container(
-                  margin: EdgeInsets.all(12),
-                  height: 130,
-                  width: MediaQuery.of(context).size.width,
-                  color: Color(0xFFc2dff1),
-                  child: Center(
-                    child: Text("Add"),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.all(12),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("ইনসাইডার এক্সক্লুসিভ ",style: TextStyle(fontWeight: FontWeight.w700,color: Color(0xFF007DC4),fontSize: 28),),
-                      const Divider(
-                        thickness: 2, // thickness of the line
-                        indent: 1, // empty space to the leading edge of divider.
-                        endIndent: 1, // empty space to the trailing edge of the divider.
-                        color:Color(0xFF007DC4), // The color to use when painting the line.
-                        height: 20, // The divider's height extent.
-                      ),
-                    ],
-                  ),
-                ),
-                HeighLightNewsBigImage(),
-                HeighLightNewsBigImage(),
-                NewsCardBigDetailsImageTop(),
-                NewsCardBigDetailsImageTop(),
-                NewsCardBigDetails(),
-                NewsCardWithoutImage(),
+                BannerAdsBig(image:data.data!.side_ad_1!.media!.thumbnail ,),
+                HeighLightNews(cover: data.data!.cover7),
+                HeighLightNews(cover: data.data!.cover8),
+                HeighLightNewsTwo(cover: data.data!.cover9),
+                HeighLightNewsTwo(cover: data.data!.cover10),
+                BannerAdsBig(image:data.data!.side_ad_2!.media!.thumbnail ,),
+
+
+                CategoryNews1(category: "পবাংলাদেশ ইনসাইড ",lan: 1,menuId: 1,),
+                // CategoryNews2(category: "ইনসাইড পলিটিক্স  ",lan: 1,menuId: 2,),
+                // CategoryNews3(category: "ইনসাইডার এক্সক্লুসিভ  ",lan: 1,menuId: 3,),
+
+
+
+
                 NewsCardWithTitleSortDiscrip(),
                 NewsCardWithTitle(),
                 NewsCardWithTitle(),

@@ -11,6 +11,9 @@ class HomeData extends HomeState{
   HomeData({this.homeResponse});
 }
 
+
+
+
 class HomeDatax extends HomeState{
   final HomeResponse? homeResponse;
 

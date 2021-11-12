@@ -1,12 +1,10 @@
 import 'package:banglainsider/Constants/Colors/colors.dart';
+import 'package:banglainsider/Data/Cover/Cover.dart';
 import 'package:flutter/material.dart';
 
-class NewsCardWithoutImage extends StatefulWidget {
-  @override
-  _NewsCardWithoutImageState createState() => _NewsCardWithoutImageState();
-}
-
-class _NewsCardWithoutImageState extends State<NewsCardWithoutImage> {
+class NewsCardWithoutImage extends StatelessWidget {
+  Cover? cover;
+  NewsCardWithoutImage({this.cover});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,21 +14,21 @@ class _NewsCardWithoutImageState extends State<NewsCardWithoutImage> {
       child: Column(
         children: [
 
-            Padding(
-              padding: const EdgeInsets.only(top: 10.0),
-              child: Text("পুলিশ বাহিনীতে শৃখলা ভঙ্গ করলে কঠোর ব্যবস্থাঃ আইজিপি",style: TextStyle(fontSize: 19,fontWeight: FontWeight.w800),textAlign: TextAlign.start,),
-            ),
+          Padding(
+            padding: const EdgeInsets.only(top: 10.0),
+            child: Text(cover!.headline.toString(),style: TextStyle(fontSize: 19,fontWeight: FontWeight.w800),textAlign: TextAlign.start,),
+          ),
           Padding(
               padding: const EdgeInsets.only(top: 10.0),
               child:Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("উপজেলা পর্যায়ে বিভিন্ন দপ্তরের কাগজপত্র ও নথি অনুমোদনের জন্য উপজেলা নির্বাহী কর্মকর্তার (ইউএনও) মাধ্যমে উপজেলা....",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),textAlign: TextAlign.start,),
+                  Text(cover!.short_description.toString(),style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),textAlign: TextAlign.start,),
                   Text("আরো পড়ুন...",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600,color: Colors.blueAccent),textAlign: TextAlign.start,),
                 ],
               )
-            ),
+          ),
           const Divider(
             thickness: 1, // thickness of the line
             indent: 1, // empty space to the leading edge of divider.

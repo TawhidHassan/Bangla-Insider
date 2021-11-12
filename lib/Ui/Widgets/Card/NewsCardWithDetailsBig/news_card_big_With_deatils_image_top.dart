@@ -1,12 +1,11 @@
 import 'package:banglainsider/Constants/Colors/colors.dart';
+import 'package:banglainsider/Constants/String/string.dart';
+import 'package:banglainsider/Data/Cover/Cover.dart';
 import 'package:flutter/material.dart';
 
-class NewsCardBigDetailsImageTop extends StatefulWidget {
-  @override
-  _NewsCardBigDetailsImageTopState createState() => _NewsCardBigDetailsImageTopState();
-}
-
-class _NewsCardBigDetailsImageTopState extends State<NewsCardBigDetailsImageTop> {
+class NewsCardBigDetailsImageTop extends StatelessWidget {
+  Cover? cover;
+  NewsCardBigDetailsImageTop({this.cover});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,22 +18,23 @@ class _NewsCardBigDetailsImageTopState extends State<NewsCardBigDetailsImageTop>
             width: MediaQuery.of(context).size.width,
             color: Colors.grey,
             height: 160,
+            child: Image.network(BASE_URL_IMAGE+cover!.media!.thumbnail.toString(),fit:BoxFit.contain),
           ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10.0),
-              child: Text("পুলিশ বাহিনীতে শৃখলা ভঙ্গ করলে কঠোর ব্যবস্থাঃ আইজিপি",style: TextStyle(fontSize: 19,fontWeight: FontWeight.w800),textAlign: TextAlign.start,),
-            ),
+          Padding(
+            padding: const EdgeInsets.only(top: 10.0),
+            child: Text(cover!.headline.toString(),style: TextStyle(fontSize: 19,fontWeight: FontWeight.w800),textAlign: TextAlign.start,),
+          ),
           Padding(
               padding: const EdgeInsets.only(top: 10.0),
               child:Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("উপজেলা পর্যায়ে বিভিন্ন দপ্তরের কাগজপত্র ও নথি অনুমোদনের জন্য উপজেলা নির্বাহী কর্মকর্তার (ইউএনও) মাধ্যমে উপজেলা....",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),textAlign: TextAlign.start,),
+                  Text(cover!.short_description.toString(),style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),textAlign: TextAlign.start,),
                   Text("আরো পড়ুন...",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600,color: Colors.blueAccent),textAlign: TextAlign.start,),
                 ],
               )
-            ),
+          ),
 
         ],
       ),

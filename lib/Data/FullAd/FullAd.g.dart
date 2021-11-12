@@ -15,6 +15,9 @@ FullAd _$FullAdFromJson(Map<String, dynamic> json) {
     json['expire_date'] as String?,
     json['created_by'] as int?,
     json['status'] as int?,
+    json['media'] == null
+        ? null
+        : Media.fromJson(json['media'] as Map<String, dynamic>),
   );
 }
 
@@ -26,4 +29,5 @@ Map<String, dynamic> _$FullAdToJson(FullAd instance) => <String, dynamic>{
       'expire_date': instance.expire_date,
       'created_by': instance.created_by,
       'status': instance.status,
+      'media': instance.media,
     };

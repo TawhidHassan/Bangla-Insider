@@ -1,8 +1,13 @@
-import 'package:banglainsider/Constants/String/string.dart';
+
 import 'package:banglainsider/Ui/Widgets/FloatingText/floating_text.dart';
 import 'package:flutter/material.dart';
 
 class BrakingNews extends StatelessWidget {
+
+  String? text;
+
+  BrakingNews({this.text});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,7 +25,7 @@ class BrakingNews extends StatelessWidget {
           Expanded(
             flex:10,
             child: ScrollingText(
-              text: text,
+              text: text.toString(),
               textStyle: TextStyle(fontSize: 12),
             ),
           )

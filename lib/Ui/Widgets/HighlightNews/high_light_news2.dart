@@ -1,6 +1,10 @@
+import 'package:banglainsider/Constants/String/string.dart';
+import 'package:banglainsider/Data/Cover/Cover.dart';
 import 'package:flutter/material.dart';
 
 class HeighLightNewsTwo extends StatelessWidget {
+  Cover? cover;
+  HeighLightNewsTwo({this.cover});
   @override
   Widget build(BuildContext context) {
     return  Container(
@@ -12,14 +16,14 @@ class HeighLightNewsTwo extends StatelessWidget {
         children: [
           Container(
             width:MediaQuery.of(context).size.width,
-            color: Colors.grey,
             height: 180,
             margin: EdgeInsets.all(8),
+            child: Image.network(BASE_URL_IMAGE+cover!.media!.thumbnail.toString(),fit:BoxFit.contain),
           ),
           SizedBox(
             height: 8,
           ),
-          Text("পুলিশ বাহিনীতে শৃখলা ভঙ্গ করলে কঠোর ব্যবস্থাঃ আইজিপি",style: TextStyle(fontSize: 19,fontWeight: FontWeight.w800),textAlign: TextAlign.start,),
+          Text(cover!.headline.toString(),style: TextStyle(fontSize: 19,fontWeight: FontWeight.w800),textAlign: TextAlign.start,),
           SizedBox(
             height: 8,
           ),
@@ -27,7 +31,7 @@ class HeighLightNewsTwo extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("করোনার এই করোনার এই কঠিন সময়ে পরোপকারের মহান ব্রত নিয়ে  কঠিন সময়ে পরোপকারের মহান ব্রত নিয়ে মহামারিতে ক্ষতিগ্রস্ত মানুষের পাশে দাঁড়ানোর জন্য হিন্দু ধর্মাবলম্বীদের প্রতি আহ্বান জানিয়েছেন রাষ্ট্রপতি ম",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),textAlign: TextAlign.start,),
+              Text(cover!.short_description.toString(),style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),textAlign: TextAlign.start,),
               Text("আরো পড়ুন...",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600,color: Colors.blueAccent),textAlign: TextAlign.start,),
             ],
           )

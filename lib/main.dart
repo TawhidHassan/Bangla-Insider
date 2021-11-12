@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:banglainsider/Bloc/CategoryNews/category_news_cubit.dart';
 import 'package:banglainsider/Bloc/Home/home_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -38,6 +39,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<HomeCubit>(
           create: (context) => HomeCubit(),
+        ),
+        BlocProvider<CategoryNewsCubit>(
+          create: (context) => CategoryNewsCubit(),
         ),
       ],
       child: MaterialApp(

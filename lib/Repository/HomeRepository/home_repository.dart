@@ -9,7 +9,7 @@ class HomeRepository{
 
   Future<HomeResponse> homeData() async {
     final homeRaw=await homeNetwork.homeData();
-    logger.d(HomeResponse.fromJson(homeRaw));
+    // logger.d(HomeResponse.fromJson(homeRaw));
 
     return HomeResponse.fromJson(homeRaw);
   }

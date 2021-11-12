@@ -1,6 +1,11 @@
+import 'package:banglainsider/Data/Menus/Menu.dart';
 import 'package:flutter/material.dart';
 
 class CustomTabView extends StatelessWidget {
+  final List<Menu>? menus;
+
+  const CustomTabView({Key? key, this.menus}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,37 +19,15 @@ class CustomTabView extends StatelessWidget {
           physics: BouncingScrollPhysics(),
           children: [
             Flex(direction: Axis.horizontal,
-              children: [
-                Container(
-                    padding: EdgeInsets.all(2),
-                    margin: EdgeInsets.all(8),
-                    child: Text('প্রচ্ছদddddddddd',style: TextStyle(fontWeight: FontWeight.w800,color: Colors.black,fontSize: 20))
-                ), Container(
-                    padding: EdgeInsets.all(2),
-                    margin: EdgeInsets.all(8),
-                    child: Text('প্রচ্ছদ',style: TextStyle(fontWeight: FontWeight.w800,color: Colors.black,fontSize: 20))
-                ), Container(
-                    padding: EdgeInsets.all(2),
-                    margin: EdgeInsets.all(8),
-                    child: Text('প্রচ্ছদddddddddd',style: TextStyle(fontWeight: FontWeight.w800,color: Colors.black,fontSize: 20))
-                ), Container(
-                    padding: EdgeInsets.all(2),
-                    margin: EdgeInsets.all(8),
-                    child: Text('প্রচ্ছদ',style: TextStyle(fontWeight: FontWeight.w800,color: Colors.black,fontSize: 20))
-                ), Container(
-                    padding: EdgeInsets.all(2),
-                    margin: EdgeInsets.all(8),
-                    child: Text('প্রচ্ছদ',style: TextStyle(fontWeight: FontWeight.w800,color: Colors.black,fontSize: 20))
-                ), Container(
-                    padding: EdgeInsets.all(2),
-                    margin: EdgeInsets.all(8),
-                    child: Text('প্রচ্ছদddddddddd',style: TextStyle(fontWeight: FontWeight.w800,color: Colors.black,fontSize: 20))
-                ), Container(
-                    padding: EdgeInsets.all(2),
-                    margin: EdgeInsets.all(8),
-                    child: Text('প্রচ্ছদddddffffffddddd',style: TextStyle(fontWeight: FontWeight.w800,color: Colors.black,fontSize: 20))
-                ),
-              ],
+              children: menus!.map((menu) =>
+                  Container(
+                      padding: EdgeInsets.all(2),
+                      margin: EdgeInsets.all(8),
+                      child: Text(menu.name.toString(),style: TextStyle(fontWeight: FontWeight.w800,color: Colors.black,fontSize: 20))
+                  ),
+
+              ).toList()
+
             )
 
           ],
