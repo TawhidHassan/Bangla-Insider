@@ -1,7 +1,11 @@
+import 'package:banglainsider/Bloc/CategoryNews/category_news2_cubit.dart';
+import 'package:banglainsider/Bloc/CategoryNews/category_news3_cubit.dart';
 import 'package:banglainsider/Bloc/CategoryNews/category_news_cubit.dart';
 import 'package:banglainsider/Bloc/Home/home_cubit.dart';
+import 'package:banglainsider/Data/FooterContent/FooterContent.dart';
 import 'package:banglainsider/Ui/Widgets/Card/NewsCardWithDetailsBig/news_card_big_With_deatils_image_top.dart';
 import 'package:banglainsider/Ui/Widgets/Card/NewsCardWithDetailsBig/news_card_big_without_image.dart';
+import 'package:banglainsider/Ui/Widgets/HighlightNews/high_light_news_big_iamge.dart';
 import 'package:banglainsider/Ui/Widgets/Simmer/home_category_simmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,8 +15,8 @@ class CategoryNews3 extends StatefulWidget {
   int? lan;
   String? category;
 
-  CategoryNews3({this.menuId, this.lan,this.category});
-
+  FooterContent?footerContent;
+  CategoryNews3({this.menuId, this.lan,this.category,this.footerContent});
   @override
   _CategoryNews3State createState() => _CategoryNews3State();
 }
@@ -22,12 +26,12 @@ class _CategoryNews3State extends State<CategoryNews3> {
   void initState() {
     // TODO: implement initState
     print("running cattt");
-    BlocProvider.of<CategoryNewsCubit>(context).categoryNewsData3(widget.menuId,widget.lan);
+    BlocProvider.of<CategoryNews3Cubit>(context).categoryNewsData1(widget.menuId,widget.lan);
     super.initState();
   }
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CategoryNewsCubit, CategoryNewsState>(
+    return BlocBuilder<CategoryNews3Cubit, CategoryNews3State>(
       builder: (context, state) {
         if(state is !HomeCatnewsData3){
           return HomeCategoryShimer();
@@ -54,13 +58,12 @@ class _CategoryNews3State extends State<CategoryNews3> {
                 ),
               ),
 
-              NewsCardBigDetailsImageTop(cover: data.data!.feature_news,),
+              data.data!.feature_news ==null? Container(): NewsCardBigDetailsImageTop(cover: data.data!.feature_news,footerContent: widget.footerContent,),
 
               Container(
                 child: Column(
                   children: data.data!.content!.map((content) =>
-                      NewsCardWithoutImage(cover:content ,)
-
+                      HeighLightNewsBigImage(cover:content,footerContent: widget.footerContent,),
                   ).toList(),
                 ),
               ),

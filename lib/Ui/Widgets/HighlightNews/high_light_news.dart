@@ -1,11 +1,14 @@
 import 'package:banglainsider/Constants/String/string.dart';
 import 'package:banglainsider/Data/Cover/Cover.dart';
+import 'package:banglainsider/Data/FooterContent/FooterContent.dart';
 import 'package:banglainsider/Data/Media/Media.dart';
 import 'package:flutter/material.dart';
 
 class HeighLightNews extends StatelessWidget {
   Cover? cover;
-  HeighLightNews({this.cover});
+  FooterContent?footerContent;
+
+  HeighLightNews({this.cover,this.footerContent});
   @override
   Widget build(BuildContext context) {
     return  Container(
@@ -38,7 +41,15 @@ class HeighLightNews extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(cover!.short_description.toString(),style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),textAlign: TextAlign.start,),
-              Text("আরো পড়ুন...",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600,color: Colors.blueAccent),textAlign: TextAlign.start,),
+              InkWell(
+                  onTap: (){
+                    Navigator.pushNamed(context, NEWS_DETAILS_PAGE,arguments: {
+                      'cover':cover,
+                      'footerContent':footerContent
+                    });
+                  },
+                  child: Text("আরো পড়ুন...",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600,color: Colors.blueAccent),textAlign: TextAlign.start,)
+              ),
             ],
           )
         ],

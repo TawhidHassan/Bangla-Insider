@@ -1,7 +1,14 @@
 import 'package:banglainsider/Constants/Colors/colors.dart';
+import 'package:banglainsider/Constants/String/string.dart';
+import 'package:banglainsider/Data/Cover/Cover.dart';
+import 'package:banglainsider/Data/FooterContent/FooterContent.dart';
 import 'package:flutter/material.dart';
 
 class NewsCardWithTitleSortDiscrip extends StatefulWidget {
+  Cover? cover;
+  FooterContent?footerContent;
+
+  NewsCardWithTitleSortDiscrip({this.cover,this.footerContent});
   @override
   _NewsCardWithTitleSortDiscripState createState() => _NewsCardWithTitleSortDiscripState();
 }
@@ -27,20 +34,27 @@ class _NewsCardWithTitleSortDiscripState extends State<NewsCardWithTitleSortDisc
                       width: 150,
                       color: backColor,
                       height: 90,
-                      child: Image.asset('assets/images/smalimage.jpg')
+                      child: Image.network(BASE_URL_IMAGE+widget.cover!.media!.thumbnail.toString(),fit:BoxFit.contain),
                   ),
                 ),
                 Expanded(
                     flex: 6,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 8,right: 8),
-                      child: Text("জেমি ডে-কে সরিয়ে সাফ ফুটবলে বাংলাদেশের দায়িত্বে ব্রুজোন",style: TextStyle(fontSize: 19,fontWeight: FontWeight.w800),textAlign: TextAlign.start,),
+                      child: InkWell(
+                          onTap: (){
+                            Navigator.pushNamed(context, NEWS_DETAILS_PAGE,arguments: {
+                              'cover':widget.cover!,
+                              'footerContent':widget.footerContent
+                            });
+                          },
+                          child: Text(widget.cover!.headline.toString(),style: TextStyle(fontSize: 19,fontWeight: FontWeight.w800),textAlign: TextAlign.start,)),
                     )),
               ],
             ),
             Padding(
               padding: const EdgeInsets.only(top: 10.0),
-              child: Text("উপজেলা পর্যায়ে বিভিন্ন দপ্তরের কাগজপত্র ও নথি অনুমোদনের জন্য উপজেলা নির্বাহী কর্মকর্তার (ইউএনও) মাধ্যমে উপজেলা....",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),textAlign: TextAlign.start,),
+              child: Text(widget.cover!.short_description.toString(),style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),textAlign: TextAlign.start,),
             ),
           ],
         )

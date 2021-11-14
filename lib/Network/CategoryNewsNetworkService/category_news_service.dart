@@ -7,6 +7,7 @@ class CategoryNewsNetwork{
   var logger = Logger();
 
   Future homeCategoryData(Map<String, int> data)async {
+    logger.d(data);
     try{
       var response = await http.post(
         Uri.parse(BASE_URL + "cat-news"),
@@ -23,7 +24,6 @@ class CategoryNewsNetwork{
       return null;
     }
   }
-
 
 
 

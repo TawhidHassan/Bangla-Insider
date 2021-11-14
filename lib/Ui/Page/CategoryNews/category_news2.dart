@@ -1,5 +1,7 @@
+import 'package:banglainsider/Bloc/CategoryNews/category_news2_cubit.dart';
 import 'package:banglainsider/Bloc/CategoryNews/category_news_cubit.dart';
 import 'package:banglainsider/Bloc/Home/home_cubit.dart';
+import 'package:banglainsider/Data/FooterContent/FooterContent.dart';
 import 'package:banglainsider/Ui/Widgets/Card/NewsCardWithDetailsBig/news_card_big_With_deatils_image_top.dart';
 import 'package:banglainsider/Ui/Widgets/Card/NewsCardWithDetailsBig/news_card_big_without_image.dart';
 import 'package:banglainsider/Ui/Widgets/Simmer/home_category_simmer.dart';
@@ -10,9 +12,8 @@ class CategoryNews2 extends StatefulWidget {
   int? menuId;
   int? lan;
   String? category;
-
-  CategoryNews2({this.menuId, this.lan,this.category});
-
+  FooterContent?footerContent;
+  CategoryNews2({this.menuId, this.lan,this.category,this.footerContent});
   @override
   _CategoryNews2State createState() => _CategoryNews2State();
 }
@@ -22,12 +23,12 @@ class _CategoryNews2State extends State<CategoryNews2> {
   void initState() {
     // TODO: implement initState
     print("running cattt");
-    BlocProvider.of<CategoryNewsCubit>(context).categoryNewsData2(widget.menuId,widget.lan);
+    BlocProvider.of<CategoryNews2Cubit>(context).categoryNewsData1(widget.menuId,widget.lan);
     super.initState();
   }
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CategoryNewsCubit, CategoryNewsState>(
+    return BlocBuilder<CategoryNews2Cubit, CategoryNews2State>(
       builder: (context, state) {
         if(state is !HomeCatnewsData2){
           return HomeCategoryShimer();
@@ -54,12 +55,12 @@ class _CategoryNews2State extends State<CategoryNews2> {
                 ),
               ),
 
-              NewsCardBigDetailsImageTop(cover: data.data!.feature_news,),
+              data.data!.feature_news ==null? Container(): NewsCardBigDetailsImageTop(cover: data.data!.feature_news,footerContent: widget.footerContent,),
 
               Container(
                 child: Column(
                   children: data.data!.content!.map((content) =>
-                      NewsCardWithoutImage(cover:content ,)
+                      NewsCardWithoutImage(cover:content ,footerContent: widget.footerContent,)
 
                   ).toList(),
                 ),

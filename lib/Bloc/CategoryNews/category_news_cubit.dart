@@ -19,23 +19,6 @@ class CategoryNewsCubit extends Cubit<CategoryNewsState> {
       }
     });
   }
-  void categoryNewsData2(int? menuId, int? lan) {
-    categoryNewsRepository.homeCategoryData(menuId!,lan!).then((result) => {
-      if(result!=null){
-        emit(HomeCatnewsData2(categoryNewsResponse:result))
 
-      }
-    });
-  }
-  void categoryNewsData3(int? menuId, int? lan) {
-    categoryNewsRepository.homeCategoryData(menuId!,lan!).then((result) => {
-      if(result!=null){
-        emit(HomeCatnewsData3(categoryNewsResponse:result))
-      }
-    });
   }
 
-
-
-
-}

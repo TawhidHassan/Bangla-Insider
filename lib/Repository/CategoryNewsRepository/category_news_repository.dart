@@ -13,10 +13,11 @@ class CategoryNewsRepository{
       "menu_id": menu,
     };
     final homeRaw=await categoryNewsNetwork.homeCategoryData(data);
-    logger.d(CategoryNewsResponse.fromJson(homeRaw));
+    // logger.d(CategoryNewsResponse.fromJson(homeRaw));
 
     return CategoryNewsResponse.fromJson(homeRaw);
   }
+
 
 
 }

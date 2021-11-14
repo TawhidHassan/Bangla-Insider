@@ -9,13 +9,4 @@ class HomeCatnewsData1 extends CategoryNewsState{
 
   HomeCatnewsData1({this.categoryNewsResponse});
 }
-class HomeCatnewsData2 extends CategoryNewsState{
-  final CategoryNewsResponse? categoryNewsResponse;
 
-  HomeCatnewsData2({this.categoryNewsResponse});
-}
-class HomeCatnewsData3 extends CategoryNewsState{
-  final CategoryNewsResponse? categoryNewsResponse;
-
-  HomeCatnewsData3({this.categoryNewsResponse});
-}

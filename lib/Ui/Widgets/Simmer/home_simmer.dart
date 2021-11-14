@@ -24,7 +24,7 @@ class HomeShimer extends StatelessWidget {
       ),
       body: Container(
         padding: EdgeInsets.only(top: 10,left: 16,right: 16),
-        height: MediaQuery.of(context).size.height,
+        height: MediaQuery.of(context).size.height*0.8,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           color: Colors.white,
@@ -34,7 +34,6 @@ class HomeShimer extends StatelessWidget {
             baseColor: Colors.grey,
             highlightColor: Colors.white,
             child: Column(
-
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(

@@ -1,6 +1,7 @@
 import 'package:banglainsider/Bloc/Home/home_cubit.dart';
 import 'package:banglainsider/Constants/Colors/colors.dart';
 import 'package:banglainsider/Constants/String/string.dart';
+import 'package:banglainsider/Ui/Page/CategoryNews/category_news3.dart';
 import 'package:banglainsider/Ui/Widgets/Ads/banner_ad.dart';
 import 'package:banglainsider/Ui/Widgets/Ads/banner_ad2.dart';
 import 'package:banglainsider/Ui/Widgets/Banner/FestonBanner/feston_banner.dart';
@@ -24,9 +25,32 @@ import 'package:banglainsider/Ui/Widgets/Sironame/sironame.dart';
 import 'package:banglainsider/Ui/Widgets/TabView/HomeCustomTabView/tabview_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'CategoryNews/Footer.dart';
 import 'CategoryNews/category_news1.dart';
+import 'CategoryNews/category_news10.dart';
+import 'CategoryNews/category_news11.dart';
+import 'CategoryNews/category_news12.dart';
+import 'CategoryNews/category_news13.dart';
+import 'CategoryNews/category_news14.dart';
+import 'CategoryNews/category_news15.dart';
+import 'CategoryNews/category_news16.dart';
+import 'CategoryNews/category_news17.dart';
+import 'CategoryNews/category_news18.dart';
+import 'CategoryNews/category_news19.dart';
 import 'CategoryNews/category_news2.dart';
-import 'CategoryNews/category_news3.dart';
+import 'CategoryNews/category_news20.dart';
+import 'CategoryNews/category_news21.dart';
+import 'CategoryNews/category_news22.dart';
+import 'CategoryNews/category_news23.dart';
+import 'CategoryNews/category_news24.dart';
+import 'CategoryNews/category_news4.dart';
+import 'CategoryNews/category_news5.dart';
+import 'CategoryNews/category_news6.dart';
+import 'CategoryNews/category_news7.dart';
+import 'CategoryNews/category_news8.dart';
+import 'CategoryNews/category_news9.dart';
+import 'CategoryNews/weather.dart';
+
 
 class HomePage extends StatefulWidget {
   @override
@@ -78,9 +102,9 @@ class _HomePageState extends State<HomePage> {
                 CustomTabView(menus: data.data!.menus,),
                 BrakingNews(text: data.data!.breaking_news![0].headline,),
                 TopBanner(image: data.data!.banner_1!.media!.thumbnail,),
-                HotNews(cover: data.data!.cover1),
-                HeighLightNews(cover: data.data!.cover2),
-                HeighLightNews(cover: data.data!.cover4),
+                HotNews(cover: data.data!.cover1,footerContent:data.data!.footer_content ,),
+                HeighLightNews(cover: data.data!.cover2,footerContent:data.data!.footer_content ),
+                HeighLightNews(cover: data.data!.cover4,footerContent:data.data!.footer_content ),
                 Sironame(),
                 Sironame(),
                 Container(
@@ -93,35 +117,61 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 BannerAds(image:data.data!.full_ad!.media!.thumbnail ,),
-                HeighLightNewsTwo(cover: data.data!.cover5),
-                HeighLightNewsTwo(cover: data.data!.cover6),
+                HeighLightNewsTwo(cover: data.data!.cover5,footerContent:data.data!.footer_content),
+                HeighLightNewsTwo(cover: data.data!.cover6,footerContent:data.data!.footer_content),
                 PublicOpenion(),
                 BannerAdsBig(image:data.data!.side_ad_1!.media!.thumbnail ,),
-                HeighLightNews(cover: data.data!.cover7),
-                HeighLightNews(cover: data.data!.cover8),
-                HeighLightNewsTwo(cover: data.data!.cover9),
-                HeighLightNewsTwo(cover: data.data!.cover10),
+                HeighLightNews(cover: data.data!.cover7,footerContent:data.data!.footer_content),
+                HeighLightNews(cover: data.data!.cover8,footerContent:data.data!.footer_content),
+                HeighLightNewsTwo(cover: data.data!.cover9,footerContent:data.data!.footer_content),
+                HeighLightNewsTwo(cover: data.data!.cover10,footerContent:data.data!.footer_content),
                 BannerAdsBig(image:data.data!.side_ad_2!.media!.thumbnail ,),
 
 
-                CategoryNews1(category: "পবাংলাদেশ ইনসাইড ",lan: 1,menuId: 1,),
-                // CategoryNews2(category: "ইনসাইড পলিটিক্স  ",lan: 1,menuId: 2,),
-                // CategoryNews3(category: "ইনসাইডার এক্সক্লুসিভ  ",lan: 1,menuId: 3,),
+                CategoryNews1(category: "পবাংলাদেশ ইনসাইড ",lan: 1,menuId: 1,footerContent: data.data!.footer_content,),
+                CategoryNews2(category: "ইনসাইড পলিটিক্স  ",lan: 1,menuId: 4,footerContent: data.data!.footer_content),
+                CategoryNews3(category: "ইনসাইডার এক্সক্লুসিভ  ",lan: 1,menuId: 5,footerContent: data.data!.footer_content),
+                CategoryNews4(category: "ইনসাইড গ্রাউন্ড  ",lan: 1,menuId: 6,footerContent: data.data!.footer_content),
+                CategoryNews5(category: "ইনসাইড টক   ",lan: 1,menuId: 7,footerContent: data.data!.footer_content),
+                CategoryNews6(category: "এডিটর'স মাইন্ড   ",lan: 1,menuId: 8,footerContent: data.data!.footer_content),
+                CategoryNews7(category: "কালার ইনসাইড   ",lan: 1,menuId: 9,footerContent: data.data!.footer_content),
+                CategoryNews8(category: "ইনসাইড থট   ",lan: 1,menuId: 10,footerContent: data.data!.footer_content),
+                CategoryNews9(category: "ইনসাইড আর্টিকেল   ",lan: 1,menuId: 11,footerContent: data.data!.footer_content),
+                CategoryNews10(category: "লিভিং ইনসাইড   ",lan: 1,menuId: 12,footerContent: data.data!.footer_content),
+                CategoryNews11(category: "লইনসাইড হেলথ   ",lan: 1,menuId: 13,footerContent: data.data!.footer_content),
+                CategoryNews12(category: "ইনসাইড ইকোনমি   ",lan: 1,menuId: 15,footerContent: data.data!.footer_content),
+                CategoryNews13(category: "ইনসাইড ট্রেড   ",lan: 1,menuId: 16,footerContent: data.data!.footer_content),
+                CategoryNews14(category: "ইনসাইডার ইনভেস্টিগেশন   ",lan: 1,menuId: 17,footerContent: data.data!.footer_content),
+                CategoryNews15(category: "লিট ইনসাইড     ",lan: 1,menuId: 19,footerContent: data.data!.footer_content),
+                CategoryNews16(category: "ইনসাইড এডুকেশন    ",lan: 1,menuId: 20,footerContent: data.data!.footer_content),
+                CategoryNews17(category: "ইনসাইড ক্যারিয়ার    ",lan: 1,menuId: 21,footerContent: data.data!.footer_content),
+                CategoryNews18(category: "টেক ইনসাইড    ",lan: 1,menuId: 22,footerContent: data.data!.footer_content),
+                CategoryNews19(category: "ইনসাইড সাইন্স     ",lan: 1,menuId: 23,footerContent: data.data!.footer_content),
+                CategoryNews20(category: "ইনসাইড কোর্ট     ",lan: 1,menuId: 24,footerContent: data.data!.footer_content),
+                CategoryNews21(category: "সোশ্যাল থট     ",lan: 1,menuId: 25,footerContent: data.data!.footer_content),
+                CategoryNews22(category: "প্রেস  ইনসাইড     ",lan: 1,menuId: 26,footerContent: data.data!.footer_content),
+                CategoryNews23(category: "ইউথ থট     ",lan: 1,menuId: 27,footerContent: data.data!.footer_content),
+                CategoryNews24(category: "ক্লাব ইনসাইড     ",lan: 1,menuId: 28,footerContent: data.data!.footer_content),
 
 
+                WeatherWidget(category: "ইনসাইড ওয়েদার     ",weather: data.data!.weather,),
+
+                NewsCardWithTitleSortDiscrip(cover: data.data!.cover9,footerContent: data.data!.footer_content,),
+                NewsCardWithTitleSortDiscrip(cover: data.data!.cover10,footerContent: data.data!.footer_content,),
 
 
-                NewsCardWithTitleSortDiscrip(),
-                NewsCardWithTitle(),
-                NewsCardWithTitle(),
-                NewsCardWithTitle(),
-                NewsCardWithTitle(),
-                NewsCardWithTitle(),
-                TitleNewsCard(),
-                TitleNewsCard(),
-                TitleNewsCard(),
-                TitleNewsCard(),
-                TitleNewsCard(),
+                Footer(footerContent: data.data!.footer_content,),
+                // NewsCardWithTitle(),
+                // NewsCardWithTitle(),
+                // NewsCardWithTitle(),
+                // NewsCardWithTitle(),
+                // NewsCardWithTitle(),
+                // TitleNewsCard(),
+                // TitleNewsCard(),
+                // TitleNewsCard(),
+                // TitleNewsCard(),
+                // TitleNewsCard(),
+
               ],
             ),
           ),

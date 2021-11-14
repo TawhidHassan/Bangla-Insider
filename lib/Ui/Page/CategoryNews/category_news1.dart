@@ -1,5 +1,6 @@
 import 'package:banglainsider/Bloc/CategoryNews/category_news_cubit.dart';
 import 'package:banglainsider/Bloc/Home/home_cubit.dart';
+import 'package:banglainsider/Data/FooterContent/FooterContent.dart';
 import 'package:banglainsider/Ui/Widgets/Card/NewsCardWithDetailsBig/news_card_big_With_deatils_image_top.dart';
 import 'package:banglainsider/Ui/Widgets/Card/NewsCardWithDetailsBig/news_card_big_without_image.dart';
 import 'package:banglainsider/Ui/Widgets/Simmer/home_category_simmer.dart';
@@ -10,8 +11,8 @@ class CategoryNews1 extends StatefulWidget {
   int? menuId;
   int? lan;
   String? category;
-
-  CategoryNews1({this.menuId, this.lan,this.category});
+  FooterContent?footerContent;
+  CategoryNews1({this.menuId, this.lan,this.category,this.footerContent});
 
   @override
   _CategoryNews1State createState() => _CategoryNews1State();
@@ -54,12 +55,12 @@ class _CategoryNews1State extends State<CategoryNews1> {
                 ),
               ),
 
-              NewsCardBigDetailsImageTop(cover: data.data!.feature_news,),
+              data.data!.feature_news ==null?Container(): NewsCardBigDetailsImageTop(cover: data.data!.feature_news,footerContent: widget.footerContent,),
 
               Container(
                 child: Column(
                   children: data.data!.content!.map((content) =>
-                      NewsCardWithoutImage(cover:content ,)
+                      NewsCardWithoutImage(cover:content ,footerContent:widget.footerContent ,)
 
                   ).toList(),
                 ),

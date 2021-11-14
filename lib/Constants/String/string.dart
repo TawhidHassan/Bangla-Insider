@@ -9,6 +9,7 @@ const BASE_URL_IMAGE = "https://bangla-insider.softwaresale.xyz/";
 //route name
 const MAIN_PAGE = "/main_page";
 const HOME_PAGE = "/home_page";
+const NEWS_DETAILS_PAGE = "/news_details_page";
 const LOGIN_PAGE = "/login_page";
 const REGISTER_PAGE = "/register_page";
 const FORGET_PASSWORD_PAGE = "/forget_passeord_page";
