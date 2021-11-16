@@ -19,8 +19,8 @@ class BrakingNews extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-              flex:4,
-              child: Text("ব্রেকিং নিউজ ",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w700),)
+              flex:5,
+              child: Text("ব্রেকিং নিউজ ",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w700),)
           ),
           Expanded(
             flex:10,

@@ -11,6 +11,7 @@ import 'package:banglainsider/Bloc/CategoryNews/category_news_cubit.dart';
 import 'package:banglainsider/Bloc/Home/home_cubit.dart';
 import 'package:banglainsider/Bloc/User/user_cubit.dart';
 import 'package:banglainsider/Constants/String/string.dart';
+import 'package:banglainsider/Ui/Page/CategoryPageNews/cate_news.dart';
 import 'package:banglainsider/Ui/Page/home_page.dart';
 import 'package:banglainsider/Ui/Page/news_details.dart';
 import 'package:banglainsider/Ui/Screen/ForgetPass/forget_pass.dart';
@@ -63,6 +64,8 @@ class AppRouter {
             ));
       case NEWS_DETAILS_PAGE:
         return MaterialPageRoute(builder: (_) => NewsDetails(cover: args!['cover'],footerContent: args['footerContent'],));
+      case NEWS_CAT_PAGE:
+        return MaterialPageRoute(builder: (_) => CatNews(footerContent:args!['footerContent'],weather: args['weather'],menuId: args['menuId'],menu: args['menu'],submenu: args['submenu'],));
       case LOGIN_PAGE:
         return MaterialPageRoute(builder: (_) => LoginScreen());
       case REGISTER_PAGE:

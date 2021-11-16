@@ -4,7 +4,7 @@ import 'package:banglainsider/Data/Cover/Cover.dart';
 import 'package:banglainsider/Data/FooterContent/FooterContent.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'package:flutter_html/flutter_html.dart';
 import 'CategoryNews/Footer.dart';
 
 class NewsDetails extends StatelessWidget {
@@ -89,7 +89,16 @@ class NewsDetails extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(14.0),
-                child: Text(cover!.description.toString(),style: TextStyle(fontWeight: FontWeight.w300,color:Colors.black,fontSize: 18),),
+                child: Html(
+                  style: {
+                    "body": Style(
+                      fontSize: FontSize(18.0),
+                      color: Colors.black
+                    ),
+                  },
+                  shrinkWrap: true,
+                  data: cover!.description.toString(),
+                ),
               ),
               Footer(footerContent: footerContent,),
             ],

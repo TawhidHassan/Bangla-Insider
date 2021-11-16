@@ -10,6 +10,7 @@ const BASE_URL_IMAGE = "https://bangla-insider.softwaresale.xyz/";
 const MAIN_PAGE = "/main_page";
 const HOME_PAGE = "/home_page";
 const NEWS_DETAILS_PAGE = "/news_details_page";
+const NEWS_CAT_PAGE = "/news_cat_page";
 const LOGIN_PAGE = "/login_page";
 const REGISTER_PAGE = "/register_page";
 const FORGET_PASSWORD_PAGE = "/forget_passeord_page";

@@ -2,6 +2,7 @@ import 'package:banglainsider/Constants/String/string.dart';
 import 'package:banglainsider/Data/Cover/Cover.dart';
 import 'package:banglainsider/Data/FooterContent/FooterContent.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 class HeighLightNewsBigImageWithOutBg extends StatelessWidget {
   Cover? cover;
@@ -39,7 +40,17 @@ class HeighLightNewsBigImageWithOutBg extends StatelessWidget {
                     child:Column(
                       children: [
                         Text(cover!.headline.toString(),style: TextStyle(fontSize: 24,fontWeight: FontWeight.w800),textAlign: TextAlign.start,),
-                        Text(cover!.short_description.toString(),style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400),textAlign: TextAlign.start,),
+                        Html(
+                            style: {
+                              "body": Style(
+                                  fontSize: FontSize(18.0),
+                                  color: Colors.black
+                              ),
+                            },
+                            shrinkWrap: true,
+                            data:cover!.short_description.toString()
+                        ),
+
                       ],
                     )
                 )
